@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt'); // For hashing the password
+// const bcrypt = require('bcrypt'); // For hashing the password
 
 const doctorSchema = new mongoose.Schema({
   name: {
