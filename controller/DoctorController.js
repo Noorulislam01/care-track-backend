@@ -1,5 +1,5 @@
 const Doctor = require("../models/Doctor");
-const { param } = require("../routes/DoctorRoutes");
+
 
 exports.FindAllDoctor=async(req,res)=>{
    
@@ -16,7 +16,7 @@ exports.FindAllDoctor=async(req,res)=>{
 
 exports.FindById=async(req,res)=>{
    const{id}=req.params
-   console.log(id)
+   // console.log(id)
    try {
     const doctors= await Doctor.findById(id)
     
