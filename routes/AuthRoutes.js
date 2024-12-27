@@ -4,7 +4,7 @@ const { Patientsignup, PatientLogin, DoctorSignup, DoctorLogin } = require('../c
 
 const router = express.Router();
 
-// Signup
+
 router.post('/patientSignup', Patientsignup);
 router.post("/patientLogin",PatientLogin)
 router.post("/doctorSignup",DoctorSignup)

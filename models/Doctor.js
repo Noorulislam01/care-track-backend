@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const bcrypt = require('bcrypt'); // For hashing the password
+
 
 const doctorSchema = new mongoose.Schema({
   name: {
@@ -18,15 +18,15 @@ const doctorSchema = new mongoose.Schema({
     unique: true,
   },
   rate: {
-    type: Number, // Consultation rate
+    type: Number, 
     required: true,
     default: 0.0,
   },
   description: {
-    type: String, // Short description about the doctor
+    type: String,
   },
   imageUrl: {
-    type: String, // URL of the image stored in Firebase Storage
+    type: String,
     required: true,
   },
   password: {

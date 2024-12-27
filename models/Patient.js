@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const bcrypt = require('bcrypt'); // For password hashing
+
 
 const patientSchema = new mongoose.Schema({
   name: {
@@ -17,7 +17,7 @@ const patientSchema = new mongoose.Schema({
   },
   walletBalance: {
     type: Number,
-    default: 0.0, // Default wallet balance is 0.0
+    default: 2000.0, // Default wallet balance is 0.0
   },
  
 });

@@ -12,16 +12,16 @@ const path = require("path");
 
 
 
-const storageConfig = multer.memoryStorage(); // Store files in memory as buffers
+const storageConfig = multer.memoryStorage(); 
 const fileFilter = (req, file, cb) => {
-  const fileTypes = /jpeg|jpg|png|gif/; // Supported file types
+  const fileTypes = /jpeg|jpg|png|gif/;
   const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
   const mimeType = fileTypes.test(file.mimetype);
 
   if (extName && mimeType) {
-    cb(null, true); // Accept the file
+    cb(null, true);
   } else {
-    cb(new Error("Only images (jpeg, jpg, png, gif) are allowed")); // Reject the file
+    cb(new Error("Only images (jpeg, jpg, png, gif) are allowed")); 
   }
 };
 
@@ -38,13 +38,12 @@ const generateAuthToken = (user) => {
   };
 
 exports.DoctorSignup = [
-    upload.single("image"), // Expecting 'image' as the form-data field
+    upload.single("image"),
     async (req, res) => {
       try {
         const { name, specialization,email, degree, rate ,description,password} = req.body;
         console.log("degree: "+ degree )
-        const file = req.file; // Multer processes the file and makes it available as `req.file`
-  
+        const file = req.file;
         if (!file) {
           return res.status(400).json({ message: "Image file is required" });
         }
@@ -58,19 +57,19 @@ exports.DoctorSignup = [
 
 
        
-        // Create a storage reference in Firebase Storage
+       
         const storageRef = ref(storage, `tour-packages/${Date.now()}_${file.originalname}`);
   
-        // Upload the image file to Firebase Storage
+       
         await uploadBytes(storageRef, file.buffer);
   
-        // Get the download URL of the uploaded image
+        
         const imageUrl = await getDownloadURL(storageRef);
   
     
         const newDoctor=new Doctor({name,specialization,email,degree,rate,description,imageUrl,password})
   
-        // Save the new tour package in the database
+        
         await newDoctor.save();
         const token = generateAuthToken(newDoctor);
         console.log(newDoctor)
@@ -87,7 +86,6 @@ exports.DoctorSignup = [
   ];
 
 
-// Signup Logic
 exports.Patientsignup = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -110,7 +108,7 @@ exports.Patientsignup = async (req, res) => {
 
 
 
-// Login Logic
+
 exports.PatientLogin = async (req, res) => {
     const { email, password } = req.body;
   
@@ -135,7 +133,7 @@ exports.PatientLogin = async (req, res) => {
   
 
 
-// Login Logic
+
 exports.DoctorLogin = async (req, res) => {
 
   const { email, password } = req.body;
@@ -154,7 +152,7 @@ exports.DoctorLogin = async (req, res) => {
       }
 
 
-      // Directly compare the provided password with the stored password
+
 
       if (password !== doctor.password) {
 
@@ -163,7 +161,7 @@ exports.DoctorLogin = async (req, res) => {
       }
 
 
-      // Generate an authentication token
+
 
       const token = generateAuthToken(doctor);
 
@@ -171,7 +169,7 @@ exports.DoctorLogin = async (req, res) => {
 
   } catch (error) {
 
-      console.error(error); // Log the error for debugging
+      console.error(error);
 
       res.status(500).json({ message: 'Error while logging in' });
 

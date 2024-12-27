@@ -10,12 +10,12 @@ const paymentSchema = new mongoose.Schema({
     required: true,
   },
   patientId: {
-    type: mongoose.Schema.Types.ObjectId, // Assuming it references a Patient model
+    type: mongoose.Schema.Types.ObjectId, 
     ref: 'Patient',
     required: true,
   },
   doctorId: {
-    type: mongoose.Schema.Types.ObjectId, // Assuming it references a Doctor model
+    type: mongoose.Schema.Types.ObjectId, 
     ref: 'Doctor',
     required: true,
   },
@@ -24,12 +24,12 @@ const paymentSchema = new mongoose.Schema({
     required: true,
   },
   discount: {
-    type: Number, // Percentage or flat amount
+    type: Number,
     default:0,
   },
   date: {
     type: Date,
-    default: Date.now, // Automatically sets to current date
+    default: Date.now, 
   },
 }, { timestamps: true });
 
