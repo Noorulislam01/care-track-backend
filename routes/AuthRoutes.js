@@ -1,8 +1,10 @@
 const express = require('express');
+const router = express.Router();
 const { Patientsignup, PatientLogin, DoctorSignup, DoctorLogin } = require('../controller/AuthController');
 
 
-const router = express.Router();
+
+
 
 
 router.post('/patientSignup', Patientsignup);

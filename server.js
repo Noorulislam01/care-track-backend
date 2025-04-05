@@ -21,7 +21,9 @@ app.use("/doctor",DoctorRoutes)
 app.use("/payment",PaymentRoutes)
 app.use("/patient",PatientRoutes)
 
-
+app.get("/", (req, res) => {
+    res.send("Working");
+  });
 
 // Start the Server
 const PORT = process.env.PORT || 5000;
