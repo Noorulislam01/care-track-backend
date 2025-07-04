@@ -7,8 +7,8 @@ const { Patientsignup, PatientLogin, DoctorSignup, DoctorLogin } = require('../c
 
 
 
-router.post('/patientSignup', Patientsignup);
-// router.post("/patientLogin",PatientLogin)
+// router.post('/patientSignup', Patientsignup);
+router.post("/patientLogin",PatientLogin)
 router.post("/doctorSignup",DoctorSignup)
 router.post("/doctorLogin",DoctorLogin)
 
