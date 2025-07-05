@@ -5,7 +5,7 @@ const connectDB = require('./config/db');
 const AuthRoutes=require("./routes/AuthRoutes");
 const DoctorRoutes=require("./routes/DoctorRoutes")
 const PaymentRoutes =require("./routes/PaymentRoutes")
-const PatientRoutes =require("./routes/PatientRoutes")
+// const PatientRoutes =require("./routes/PatientRoutes")
 dotenv.config();
 
 
