@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/auth" ,AuthRoutes)
 app.use("/doctor",DoctorRoutes)
-app.use("/payment",PaymentRoutes)
+// app.use("/payment",PaymentRoutes)
 app.use("/patient",PatientRoutes)
 
 app.get("/", (req, res) => {
